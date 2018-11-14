@@ -1,0 +1,24 @@
+import sys
+
+def fibon(N):
+    a = 0
+    b = 1
+    fib = 1
+
+
+    for i in range(N):
+        yield fib
+
+        fib = a + b
+        a = b
+        b = fib
+
+
+
+
+
+
+n = int(input("Enter ...th of fibonacci number: "))
+
+for i in fibon(n):
+    print(i)
