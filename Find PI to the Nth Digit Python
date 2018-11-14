@@ -1,0 +1,17 @@
+import sys
+import math
+from mpmath import *
+
+
+
+def generatePi(N):
+
+    mp.dps = N
+    p = str(mp.pi)
+    print(p[N])
+
+
+
+m = int(input("Guess ...th digits of pi:"))
+
+generatePi(m)
