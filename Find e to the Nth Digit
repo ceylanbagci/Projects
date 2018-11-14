@@ -1,0 +1,25 @@
+import sys
+import math
+from mpmath import *
+
+
+
+def generateEuller(N):
+
+    mp.dps = N
+    euler = str(mp.e)
+    print(euler)
+    print(euler[N])
+
+
+
+m = int(input("Guess ...th digits of Euller:"))
+
+generatePi(m)
+
+
+
+
+
+
+
