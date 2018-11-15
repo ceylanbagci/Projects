@@ -1,0 +1,34 @@
+import sys
+import math
+
+"""
+                                          number of payments
+                            rate* (1 + rate)
+Mothly Payment = Principal ---------------------
+                                          number of payments
+                                (1 + rate)                  - 1                   
+"""
+
+
+def cal_installment():
+    a = (interest_rate + 1)**installment
+    return principal * (interest_rate*a) / (a -1)
+
+interest_rate = 2.34/100
+print("Welcome Credit Bank")
+
+principal = float(input("How much money do you need?"))
+
+print("Great! Our rates are on lowest level of % 2.34 ")
+
+installment = float(input("How long do you wanna pay back (monthly)"))
+
+print("Ok Then")
+
+x = round(cal_installment())
+y = round(x * installment)
+z = round(y / 52)
+q = round(y / 365)
+
+print("Your monthly payment is:${}\nYour weekly payment is:${}\nYour daily payment is:${}\nyour total pay back:${}".format(x,z,q,y))
+
