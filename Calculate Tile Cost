@@ -1,0 +1,31 @@
+import sys
+import math
+
+"""
+1.Assign tile size and value
+2.Ask user floor plan
+3.Calculate the number of tile and cost
+
+
+"""
+def cal_cost ():
+
+    labor_cost = round(0.5*floor_area)
+    title_cost = round((floor_area / tile_area)*tile_cost)
+    total_cost = round((floor_area / tile_area)*tile_cost + labor_cost)
+    return "Total Tile Cost:${}\nLabor Cost:${}\nYour total cost :${}".format(title_cost,labor_cost,total_cost)
+
+tile_area = 0.3*0.3
+width = int
+height = int
+
+
+width = float(input("Please give width of floor in meter: "))
+height = float(input("Please give height of floor in meter: "))
+tile_cost = float(input("Please give tile cost: "))
+
+floor_area = width * height
+print("Your floor area is {} meter square".format(floor_area))
+
+print(cal_cost())
+
