@@ -1,0 +1,64 @@
+import sys
+import math
+
+"""
+1.Assign quarters, dimes, nickels, pennies
+2.Assign cost and then the amount of money given
+3.Calculate change
+    
+"""
+
+dollar = 1.0
+quarter = dollar / 4
+dime = dollar / 10
+nickel = dollar / 20
+penny = dollar / 100
+
+
+def quarter_returns(change):
+    counter_quarter = 0
+    while change >= quarter:
+        change = change - quarter
+        counter_quarter = counter_quarter + 1
+    return counter_quarter,round(change,2)
+
+def dime_returns(change):
+    counter_dime = 0
+    while change >= dime:
+        change = change - dime
+        counter_dime = counter_dime + 1
+    return counter_dime, round(change, 2)
+
+def nickel_returns(change):
+    counter_nickel = 0
+    while change >= nickel:
+        change = change - nickel
+        counter_nickel = counter_nickel + 1
+    return counter_nickel, round(change, 2)
+
+def penny_returns(change):
+    counter_penny = 0
+    while change >= penny and change == 0 :
+        change = change - penny
+        counter_penny = counter_penny + 1
+    return counter_penny, round(change, 2)
+
+def change_returns(change):
+    quarter_change = quarter_returns(change)
+    #print(quarter_change)
+    dime_change = dime_returns(quarter_change[1])
+    #print(dime_change)
+    nickel_change = nickel_returns(dime_change[1])
+    #print(nickel_change)
+    penny_change = penny_returns(nickel_change[1])
+    #print(penny_change)
+    return "Your change is:{} quarter,{} dime,{} nickel,{} penny".format(quarter_change[0],dime_change[0],nickel_change[0],penny_change[0])
+
+
+print("Hi There Thanx to coose us")
+change = float(input("Your change is =(please give a float like '0.45')"))
+print(change_returns(change))
+
+
+
+
