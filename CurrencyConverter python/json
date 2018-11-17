@@ -1,0 +1,29 @@
+
+import requests
+import json
+
+
+
+def convert(frm,to,amount):
+    curr = frm + to
+    frmm = data['rates'][frm]
+    too = data['rates'][to]
+    return "{} {} ".format(curr,too / frmm * amount)
+
+
+url = 'https://api.exchangeratesapi.io/latest?base=USD' #URL from EU Bank
+response = requests.get(url)
+data = response.json()
+
+currenciesUSD = data['rates']
+print(currenciesUSD)
+currencies = [item for item in data['rates']]
+print("Hi there Welcome to the currency converter")
+print("Please use the one of them plz",currencies)
+frm = input("Currency From: ").upper()
+to = input("Currency To: ").upper()
+amount = float(input("Give me an amount of money: "))
+
+print(convert(frm,to,amount))
+
+
