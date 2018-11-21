@@ -1,0 +1,35 @@
+import json
+import requests
+
+url = "https://jsonvat.com"
+response = requests.get(url)
+data = response.json()
+x = len(data['rates'])
+
+def check(country,amount):
+
+    for i in range(x):
+        if data['rates'][i]['code'] == country.upper():
+            return "Total charge : {} '\n'" \
+                   "Tax rate: {}" '\n' \
+                   "The amount of tax pay you will pay: €{}".format(amount+data['rates'][i]['periods'][0]['rates']['standard']*amount/100,data['rates'][i]['periods'][0]['rates']['standard'],data['rates'][i]['periods'][0]['rates']['standard']*amount/100)
+
+def get_country_codes():
+    country = {}
+    for i in range(x):
+        country[data['rates'][i]['name']] = data['rates'][i]['code']
+
+    return country
+
+
+country = get_country_codes()
+print(country)
+print("Please enter an 'Country Code' and 'Amount' of cost '\n'"
+      " I will return you tax rate and amount of tax you will pay")
+
+country_input = input("Enter country code: ")
+amount = int(input("Enter amount of money in €"))
+
+print(check(country_input,amount))
+
+
